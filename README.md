@@ -1,5 +1,7 @@
 # Webpack template for Angular 2
 
+[![Build Status](https://travis-ci.org/DenisVuyka/ng2-webpack-template.svg?branch=master)](https://travis-ci.org/DenisVuyka/ng2-webpack-template)
+
 This is a minimal Angular 2 project and external library template configured with Webpack.
 
 ## Installing and running
