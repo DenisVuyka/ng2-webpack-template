@@ -4,16 +4,14 @@
   "description": "A webpack starter for Angular",
   "author": "Denys Vuika <denys.vuika@gmail.com>",
   "scripts": {
-    "build": "rimraf dist && tsc",
-    "pub": "npm run build && npm run clean && npm run copy:html && npm run copy:css && npm run copy:img && npm run copy",
-    "clean": "rm -rf ../demo-app/node_modules/angular2-webpack-lib/",
-    "copy": "cp -r dist/ ../demo-app/node_modules/angular2-webpack-lib",
-    "copy:html": "cp src/*.html dist/src/",
-    "copy:css": "cp src/*.css dist/src/",
-    "copy:img": "cp src/*.png dist/src/"
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc && npm run copy:static",
+    "pub": "npm run build && npm run clean:parent && npm run copy:parent",
+    "copy:static": "cpx \"./src/**/*.{html,css,json,png,jpg,gif,svg}\" ./dist/src",
+    "clean:parent": "rimraf ../demo-app/node_modules/angular2-webpack-lib/",    
+    "copy:parent": "cpx \"dist/**/*\" ../demo-app/node_modules/angular2-webpack-lib"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.2.0",
@@ -29,8 +27,9 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
-    "@types/node": "^6.0.45",
     "@types/jasmine": "^2.5.35",
+    "@types/node": "^6.0.45",
+    "cpx": "^1.5.0",
     "rimraf": "^2.5.2",
     "typescript": "^2.0.3"
   }
