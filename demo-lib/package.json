@@ -1,0 +1,36 @@
+{
+  "name": "angular2-webpack-lib",
+  "version": "1.0.0",
+  "description": "A webpack starter for Angular",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "pub": "npm run build && npm run clean && npm run copy:html && npm run copy:css && npm run copy:img && npm run copy",
+    "clean": "rm -rf ../demo-app/node_modules/angular2-webpack-lib/",
+    "copy": "cp -r dist/ ../demo-app/node_modules/angular2-webpack-lib",
+    "copy:html": "cp src/*.html dist/src/",
+    "copy:css": "cp src/*.css dist/src/",
+    "copy:img": "cp src/*.png dist/src/"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "~2.2.0",
+    "@angular/compiler": "~2.2.0",
+    "@angular/core": "~2.2.0",
+    "@angular/forms": "~2.2.0",
+    "@angular/http": "~2.2.0",
+    "@angular/platform-browser": "~2.2.0",
+    "@angular/platform-browser-dynamic": "~2.2.0",
+    "@angular/router": "~3.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.25"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "@types/jasmine": "^2.5.35",
+    "rimraf": "^2.5.2",
+    "typescript": "^2.0.3"
+  }
+}
