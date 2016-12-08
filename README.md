@@ -6,24 +6,28 @@ This is a minimal Angular 2 project and external library template configured wit
 
 ## Installing and running
 
-Compile `demo-app`:
-
-```sh
-cd demo-app
-npm install
-```
-
 Compile `demo-lib`:
 
 ```sh
 cd demo-lib
 npm install
 npm run build
-npm run link
 ```
 
-The `npm run link` script copies compiled output to the parent `demo-app/node-modules` folder.
+_Optinally you can run tests with `npm test`_
+
+Compile `demo-app`:
+
+```sh
+cd demo-app
+npm install
+bash link.sh
+```
+
+The `link.sh` script copies compiled output to the parent `demo-app/node-modules` folder.
 This is required do to a known webpack issue with `npm link`ed (symbolic links) content. 
+
+_Optinally you can run tests with `npm test`_
 
 Run `demo-app` in development mode:
 
