@@ -2,7 +2,7 @@ language: node_js
 node_js:
     - "6"
 script:
-    - cd ../demo-lib
+    - cd demo-lib
     - npm install
     - npm run build
     - npm test
