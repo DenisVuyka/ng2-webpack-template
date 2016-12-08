@@ -7,12 +7,9 @@
     "clean": "rimraf dist",
     "build": "npm run clean && tsc && npm run copy:static",
     "test": "karma start",
-    "link": "npm run build && npm run clean:parent && npm run copy:parent",
-    "copy:static": "cpx \"./src/**/*.{html,css,json,png,jpg,gif,svg}\" ./dist/src",
-    "clean:parent": "rimraf ../demo-app/node_modules/angular2-webpack-lib/",
-    "copy:parent": "cpx \"dist/**/*\" ../demo-app/node_modules/angular2-webpack-lib"
+    "copy:static": "cpx \"./src/**/*.{html,css,json,png,jpg,gif,svg}\" ./dist/src"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.2.0",

@@ -2,12 +2,11 @@ language: node_js
 node_js:
     - "6"
 script:
-    - cd demo-app
-    - npm install
     - cd ../demo-lib
     - npm install
     - npm run build
     - npm test
-    - npm run link
     - cd ../demo-app
+    - npm install
+    - bash link.sh
     - npm test
