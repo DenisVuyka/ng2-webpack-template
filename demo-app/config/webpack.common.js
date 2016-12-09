@@ -2,6 +2,18 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
+var path = require('path');
+var fs = require('fs');
+
+const rootPath = helpers.root('node_modules');
+
+// resolves real paths (including symlinks created by `npm link`)
+var libs = [
+  helpers.root('node_modules', 'angular2-webpack-lib')
+  // put external libs here
+].map(entry => fs.realpathSync(entry));
+
+console.dir(libs);
 
 module.exports = {
   entry: {
@@ -15,7 +27,13 @@ module.exports = {
     modules: [
       helpers.root('src'), 
       helpers.root('node_modules')
-    ]
+    ],
+    root: rootPath,
+    fallback: rootPath
+  },
+
+  resolveLoader: {
+    fallback: rootPath
   },
 
   module: {
@@ -28,7 +46,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: [
-          helpers.root('node_modules', 'angular2-webpack-lib')
+          ...libs
         ],
         loaders: ['angular2-template-loader', 'source-map-loader']
       },
@@ -44,7 +62,7 @@ module.exports = {
         test: /\.css$/,
         exclude: [
           helpers.root('src', 'app'),
-          helpers.root('node_modules', 'angular2-webpack-lib')
+          ...libs
         ],
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
       },
@@ -52,7 +70,7 @@ module.exports = {
         test: /\.css$/,
         include: [
           helpers.root('src', 'app'),
-          helpers.root('node_modules', 'angular2-webpack-lib')
+          ...libs
         ],
         loader: 'raw'
       }

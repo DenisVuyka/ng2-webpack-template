@@ -6,7 +6,8 @@ script:
     - npm install
     - npm run build
     - npm test
+    - npm link
     - cd ../demo-app
+    - npm link angular2-webpack-lib
     - npm install
-    - bash link.sh
     - npm test

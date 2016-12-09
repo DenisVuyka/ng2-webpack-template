@@ -6,12 +6,13 @@ This is a minimal Angular 2 project and external library template configured wit
 
 ## Installing and running
 
-Compile `demo-lib`:
+Compile and link `demo-lib`:
 
 ```sh
 cd demo-lib
 npm install
 npm run build
+npm link
 ```
 
 _Optinally you can run tests with `npm test`_
@@ -20,8 +21,8 @@ Compile `demo-app`:
 
 ```sh
 cd demo-app
+npm link angular2-webpack-lib
 npm install
-bash link.sh
 ```
 
 The `link.sh` script copies compiled output to the parent `demo-app/node-modules` folder.
