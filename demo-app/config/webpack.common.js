@@ -30,7 +30,7 @@ module.exports = {
         include: [
           helpers.root('node_modules', 'angular2-webpack-lib')
         ],
-        loader: 'angular2-template-loader',
+        loaders: ['angular2-template-loader', 'source-map-loader']
       },
       {
         test: /\.html$/,
