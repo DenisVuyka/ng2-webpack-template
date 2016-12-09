@@ -4,6 +4,12 @@
 
 This is a minimal Angular 2 project and external library template configured with Webpack.
 
+Main features:
+
+- demonstrates external library authoring and reuse
+- using symlinked modules (`npm link`) for local development of newer versions
+- sourcemaps and TypeScript debugging in the browser for app and external libraries
+
 ## Installing and running
 
 Compile and link `demo-lib`:
@@ -24,9 +30,6 @@ cd demo-app
 npm link angular2-webpack-lib
 npm install
 ```
-
-The `link.sh` script copies compiled output to the parent `demo-app/node-modules` folder.
-This is required do to a known webpack issue with `npm link`ed (symbolic links) content. 
 
 _Optinally you can run tests with `npm test`_
 
