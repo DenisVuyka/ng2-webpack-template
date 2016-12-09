@@ -33,6 +33,9 @@ module.exports = {
   },
 
   resolveLoader: {
+    alias: {
+      'systemjs-loader': helpers.root('config', 'loaders', 'system.js')
+    },
     fallback: rootPath
   },
 
@@ -48,7 +51,7 @@ module.exports = {
         include: [
           ...libs
         ],
-        loaders: ['angular2-template-loader', 'source-map-loader']
+        loaders: ['angular2-template-loader', 'source-map-loader', 'systemjs-loader']
       },
       {
         test: /\.html$/,

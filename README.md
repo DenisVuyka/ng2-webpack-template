@@ -9,6 +9,8 @@ Main features:
 - demonstrates external library authoring and reuse
 - using symlinked modules (`npm link`) for local development of newer versions
 - sourcemaps and TypeScript debugging in the browser for app and external libraries
+- using own webpack loaders
+- supporting components optimized for SystemJS loader (using `module.id`)
 
 ## Installing and running
 
